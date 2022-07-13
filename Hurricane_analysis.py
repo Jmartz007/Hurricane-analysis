@@ -37,8 +37,8 @@ def dmg_conversion(damages):
 # test function by updating damages
 # print(damages)
 updated_damages = dmg_conversion(damages)
-# print(updated_damages)
-# print("\n \n \n")
+print(updated_damages)
+print("\n \n \n")
 
 # 2 
 # Create a Table
@@ -59,8 +59,8 @@ def hurricane_compiler(name, month, year, max_winds, areas, damage, deaths):
 hurricanes = hurricane_compiler(names, months, years, max_sustained_winds, areas_affected, updated_damages, deaths)
 print("\t Here is a dictionary of hurricanes: \n")
 print(hurricanes)
-
 print("\n \n")
+
 # 3
 # Organizing by Year
 def hurricanes_years(hurricanes_dict):
@@ -75,8 +75,8 @@ def hurricanes_years(hurricanes_dict):
   return years_dict
 # create a new dictionary of hurricanes with year and key
 years_dictionary = hurricanes_years(hurricanes)
-# print("\t Here is a dictionary of hurricanes in years: \n \n")
-# print(years_dictionary)
+print("\t Here is a dictionary of hurricanes in years: \n \n")
+print(years_dictionary)
 
 # 4
 # Counting Damaged Areas
@@ -87,11 +87,11 @@ def count_areas_affected(hurricanes):
       if count_areas.get(i.title()) is None:
         count_areas[i.title()] = 1
       else:
-        count_areas[i.title()] = count_areas[i.title()] + 1
+        count_areas[i.title()] += 1
   return count_areas
 # # create dictionary of areas to store the number of hurricanes involved in
 areas_affected_counts = count_areas_affected(hurricanes)
-# print(areas_affected_counts)
+print(areas_affected_counts)
 
 # 5 
 # Calculating Maximum Hurricane Count
@@ -103,8 +103,6 @@ def most_impacted_area(aff_areas_dict):
     if aff_areas_dict[area] > high_count:
       high_count = aff_areas_dict[area]
       most_aff = area
-    else:
-      continue
   print(str.format("The area affected most by hurricanes is {} which was hit {} times by hurricanes.", most_aff, high_count))
 
 # find most frequently affected area and the number of hurricanes involved in
@@ -120,11 +118,10 @@ def deadly_hurricane(hurricanes_dict):
     if items.get("Deaths") > high_count:
       high_count = items.get("Deaths")
       most_deadly = items.get("Name")
-    else:
-      continue
   print(str.format("The most deadly hurricane was {} with {} deaths recorded.", most_deadly, high_count))
 # find highest mortality hurricane and the number of deaths
 deadly_hurricane(hurricanes)
+
 # 7
 # Rating Hurricanes by Mortality
 mortality_scale = {0: 0,
@@ -159,7 +156,7 @@ def mortality_rating(hurricanes_dict):
 
 # categorize hurricanes in new dictionary with mortality severity as key
 mortality_scaled_hurricanes = mortality_rating(hurricanes)
-print(mortality_scaled_hurricanes[2])
+print(mortality_scaled_hurricanes)
 
 # 8 Calculating Hurricane Maximum Damage
 def highest_damage(hurricanes_dict):
@@ -176,6 +173,7 @@ def highest_damage(hurricanes_dict):
 # find highest damage inducing hurricane and its total cost
 highest_damage(hurricanes)
 print("\n \n")
+
 # 9
 # Rating Hurricanes by Damage
 damage_scale = {0: 0,
